@@ -7,21 +7,13 @@
             <h1><a href="">Django Girls Blog</a></h1>
         </div>
 
-        <div>
-            <p>published: 13.11.2015, 10:38</p>
-            <h2><a href="">My first post</a></h2>
-            <p>To log in, you need to create a superuser - a user which has control over everything on the site. Go back to the command-line and type python manage.py createsuperuser, and press enter. When prompted, type your username (lowercase, no spaces), email address, and password. Don't worry that you can't see the password you're typing in - that's how it's supposed to be. Just type it in and press enter to continue. The output should look like this (where username and email should be your own ones):
-</p>
-        </div>
+        {% for post in posts %}
+    		<div>
+        		<p>published: {{ post.published_date }}</p>
+        		<h1><a href="">{{ post.title }}</a></h1>
+        		<p>{{ post.text|linebreaks }}</p>
+    		</div>
+		{% endfor %}
 
-        <div>
-            <p>published: 13.11.2015, 10:40</p>
-            <h2><a href="">My second post</a></h2>
-            <p>We're going to create a simple blog!
-
-The first step is to start a new Django project. Basically, this means that we'll run some scripts provided by Django that will create the skeleton of a Django project for us. This is just a bunch of directories and files that we will use later.
-
-The names of some files and directories are very important for Django. You should not rename the files that we are about to create. Moving them to a different place is also not a good idea. Django needs to maintain a certain structure to be able to find important things.</p>
-        </div>
     </body>
 </html>
